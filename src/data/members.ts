@@ -28,7 +28,7 @@ export const members: Member[] = [
   },
   {
     id: 2,
-    name: "Zoe Ashvaele",
+    name: "Zoe Ashvale",
     rank: "Wayfinder",
     playingSince: "1.0",
     preferredRole: ["Healer"],
