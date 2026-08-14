@@ -1,0 +1,39 @@
+@keyframes fc-glow-pulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+// Fixed so it stays put (no reload/flash) while pages transition on top of it.
+.scene-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('../../assets/images/WwR.png') center / cover no-repeat;
+
+  .scene-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85) 70%),
+      linear-gradient(180deg, rgba(6, 8, 15, 0.6) 0%, rgba(6, 8, 15, 0.9) 100%);
+  }
+
+  .scene-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 900px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.35) 0%, rgba(220, 38, 38, 0) 65%);
+    filter: blur(10px);
+    animation: fc-glow-pulse 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,296 @@
+@keyframes fc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fc-title-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.memberPage {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  padding-bottom: 80px;
+
+  .memberPage-notFound {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+  }
+
+  .contentContainer {
+    position: relative;
+    z-index: 2;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+    animation: fc-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .backButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      color: #ff9c9c;
+      transform: translateX(-4px);
+    }
+  }
+
+  .memberPanel {
+    background: rgba(15, 15, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+
+    &-header {
+      display: flex;
+      gap: 32px;
+      padding: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    &-image {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(220, 38, 38, 0.3);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 64px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.25);
+      background: linear-gradient(135deg, #1a1a1f, #0a0a0d);
+    }
+
+    &-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #ffb347;
+        text-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
+      }
+
+      .fc-title {
+        margin: 0;
+        font-family: 'Cinzel Decorative', cursive;
+
+        .fc-title-accent {
+          font-size: clamp(28px, 4vw, 42px);
+          font-weight: 900;
+          background: linear-gradient(90deg, #ff3b3b, #ffb347, #ff3b3b);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: fc-title-shimmer 4s linear infinite;
+          filter: drop-shadow(0 0 18px rgba(255, 59, 59, 0.55));
+        }
+      }
+    }
+
+    &-quote {
+      margin: 4px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+
+      @media (max-width: 640px) {
+        justify-content: center;
+      }
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 40px;
+
+      h2 {
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 20px;
+        color: #f5f5f5;
+        margin: 0 0 12px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+
+      h3 {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin: 0 0 8px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14.5px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    &-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    &-stats {
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      .stat-card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        .stat-label {
+          font-size: 11px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #ff9c9c;
+        }
+
+        .stat-value {
+          font-size: 13.5px;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.85);
+        }
+      }
+    }
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+
+    &-job {
+      background: rgba(220, 38, 38, 0.18);
+      border-color: rgba(220, 38, 38, 0.35);
+      color: #ff9c9c;
+    }
+
+    &-role {
+      background: rgba(255, 179, 71, 0.15);
+      border-color: rgba(255, 179, 71, 0.35);
+      color: #ffd9a3;
+    }
+  }
+
+  .FC-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #dc2626, #7f1d1d);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 40px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow:
+      0 6px 20px rgba(220, 38, 38, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow:
+        0 10px 30px rgba(220, 38, 38, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.98);
+    }
+  }
+}
