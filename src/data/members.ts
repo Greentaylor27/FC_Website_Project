@@ -70,7 +70,7 @@ export const members: Member[] = [
     id: 4,
     name: "Oyuun Noykin",
     rank: "Wanderer",
-    playingSince: "3 years",
+    playingSince: "6.45",
     preferredRole: ["Melee DPS", "Tank"],
     mainJob: ["Viper", "Gunbreaker"],
     favoriteContent: ["Glamour", "Crafting", "Gathering", "Extremes", "PvP"],
